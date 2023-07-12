@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title>Poll App by Mangesh Pukale </title>
+		<style>
+			*{font-size:40px;}
+			.nav{background-color:black;}
+			.nav a {color:white; text-decoration:None; margin:40px;}
+		</style>
+	</head>
+	<body>
+	<center>
+		<div class="nav">
+			{% if user.is_authenticated %}
+				<a href = "{% url 'ulogout' %}"> Logout </a>
+				<a href = "{% url 'ucp' %}"> Change Password </a>
+				<a href = "{% url 'home' %}"> Home </a>
+				<a href = "{% url 'create' %}"> Create </a>
+
+
+			{% else %}
+				<a href = "{% url 'uhome' %}"> Login </a>
+				<a href = "{% url 'usignup' %}"> SignUp </a>
+			{% endif %}
+		</div>
+		{% block content %}
+		{% endblock %}
+	</center>
+	</body>
+</html>
